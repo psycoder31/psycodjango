@@ -25,8 +25,7 @@ SECRET_KEY = 'p^y$%#@)*2+--29(6a&d8!(cc(p5eu9=#%$43f7n^413_svr4f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
