@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     #새로 추가한 앱들
     'blog',
+    'dojo',
 ]
 
 MIDDLEWARE = [
