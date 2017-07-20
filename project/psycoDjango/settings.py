@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #서드파티 패키지
+    'django_extensions',
+
     #새로 추가한 앱들
     'blog',
     'dojo',
