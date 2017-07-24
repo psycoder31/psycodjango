@@ -16,7 +16,7 @@ class Post(models.Model):
         ('d', 'Draft'),
         ('p', 'Published'),
     )
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="blog_post_set")
 
     # author = models.CharField(
     #     max_length = 20,
