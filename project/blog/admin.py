@@ -2,13 +2,14 @@
 
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Post, Comment
+from .models import Post, Comment, Tag
 # Register your models here.
 
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'content_size', 'status', 'created_at', 'updated_at']
+    list_display_links = ['title']
     actions = ['make_published', 'make_draft']
 
     def content_size(self, post):                      #post에 현제 인스턴스가 들어간다.
@@ -31,3 +32,8 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ['name']
