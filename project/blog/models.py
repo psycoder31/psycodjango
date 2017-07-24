@@ -47,7 +47,7 @@ class Post(models.Model):
         max_length=1,
         choices=STATUS
     )
-    tag_set = models.ManyToManyField('Tag')
+    tag_set = models.ManyToManyField('Tag', blank=True, null=True)
     ''' 릴레이션을 지정할 때는 문자열 혹은 클래스 네임을 직접 지정할 수 있다. 
         But tag 클래스는 하위에 구현되었기 때문에 스트링으로 지정
         다른 엡에 있는 경우에는 'app.models'라는 문자열을 지정할 수 있다.
