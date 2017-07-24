@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^dojo/', include('dojo.urls')),
-
+    url(r'^shop/', include('shop.urls')),
 ]

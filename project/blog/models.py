@@ -3,6 +3,8 @@ import re
 from django.forms import ValidationError
 from django.db import models
 
+from django.conf import settings
+
 def lnglat_validator(value):
     if not re.match(r'^([+-]?\d+\.?\d*),([+-]?\d+\.?\d*)$', value):
         raise ValidationError('Invalid LngLat Type')
@@ -14,11 +16,12 @@ class Post(models.Model):
         ('d', 'Draft'),
         ('p', 'Published'),
     )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
 
-    author = models.CharField(
-        max_length = 20,
-        verbose_name='작성자',
-    )
+    # author = models.CharField(
+    #     max_length = 20,
+    #     verbose_name='작성자',
+    # )
     title = models.CharField(               # 길이 제한이 있는 문자열
         max_length=100,
         verbose_name='제목', 
@@ -47,7 +50,7 @@ class Post(models.Model):
         max_length=1,
         choices=STATUS
     )
-    tag_set = models.ManyToManyField('Tag', blank=True, null=True)
+    tag_set = models.ManyToManyField('Tag', blank=True)
     ''' 릴레이션을 지정할 때는 문자열 혹은 클래스 네임을 직접 지정할 수 있다. 
         But tag 클래스는 하위에 구현되었기 때문에 스트링으로 지정
         다른 엡에 있는 경우에는 'app.models'라는 문자열을 지정할 수 있다.
